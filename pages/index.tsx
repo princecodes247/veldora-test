@@ -7,7 +7,13 @@ import { WaitlistForm } from "@/components/WaitlistForm";
 import { Label } from "@/components/ui/label";
 import { useEffect, useRef } from "react";
 import wordmarkLogo from "@/public/wordmark.png";
-import { FacebookIcon, InstagramIcon, Mail, TwitterIcon } from "lucide-react";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  Mail,
+  TwitterIcon,
+  UserCheck2,
+} from "lucide-react";
 import Link from "next/link";
 import useIncrementalCounter from "@/hooks/useIncrementalCounter";
 const inter = Inter({ subsets: ["latin"] });
@@ -40,7 +46,8 @@ export default function Home() {
             Curious about the next big thing in social media? Secure your spot
             on our waitlist and be the first to explore our innovative platform!
           </p>
-          <p className="my-4 mb-2 font-semibold text-center text-gray-200">
+          <p className="flex justify-center gap-2 my-4 mb-2 font-semibold text-center text-gray-200 ">
+            <UserCheck2 className="text-center text-green-400 " />
             <span className="text-green-400">{subCount}</span> PEOPLE WAITING
           </p>
           {/* <WaitlistForm /> */}
