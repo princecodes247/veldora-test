@@ -9,9 +9,11 @@ import { useEffect, useRef } from "react";
 import wordmarkLogo from "@/public/wordmark.png";
 import { FacebookIcon, InstagramIcon, Mail, TwitterIcon } from "lucide-react";
 import Link from "next/link";
+import useIncrementalCounter from "@/hooks/useIncrementalCounter";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const subCount = useIncrementalCounter(10, 3021, 8000);
   return (
     <>
       <main
@@ -39,7 +41,7 @@ export default function Home() {
             on our waitlist and be the first to explore our innovative platform!
           </p>
           <p className="my-4 mb-2 font-semibold text-center text-gray-200">
-            <span className="text-green-400">2340</span> PEOPLE WAITING
+            <span className="text-green-400">{subCount}</span> PEOPLE WAITING
           </p>
           {/* <WaitlistForm /> */}
           <form className="flex flex-col gap-2 mt-12">
