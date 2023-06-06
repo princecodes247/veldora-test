@@ -118,8 +118,8 @@ export default function Home() {
           ) : (
             <div>
               <p className="mb-4 text-center text-white">
-                Thanks for joining the waitlist! We'll let you know when we're
-                up.
+                Thanks for joining the waitlist! We&apos;ll let you know when
+                we&apos;re up.
                 <br />
                 Share with your friends who are interested in getting betting
                 codes fast!
