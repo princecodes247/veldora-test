@@ -81,7 +81,7 @@
 }
 
 .bg-pattern {
-  background: url("../public/bg.jpg") black;
+  background: url("../public/bg.webp") black;
   background-size: cover;
   background-position: center;
   object-fit: contain;
