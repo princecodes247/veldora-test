@@ -7,6 +7,8 @@ import { WaitlistForm } from "@/components/WaitlistForm";
 import { Label } from "@/components/ui/label";
 import { useEffect, useRef } from "react";
 import wordmarkLogo from "@/public/wordmark.png";
+import { FacebookIcon, InstagramIcon, Mail, TwitterIcon } from "lucide-react";
+import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -41,7 +43,7 @@ export default function Home() {
             <div>
               <Label htmlFor="email">Email</Label>
               <Input
-                className="rounded-sm bg-white/80"
+                className="text-black rounded-sm bg-white/80"
                 id="email"
                 type="email"
                 placeholder="Email"
@@ -50,7 +52,7 @@ export default function Home() {
             <div>
               <Label htmlFor="full-name">Full Name</Label>
               <Input
-                className="rounded-sm bg-white/80"
+                className="text-black rounded-sm bg-white/80"
                 id="full-name"
                 type="text"
                 placeholder="Full Name"
@@ -60,8 +62,31 @@ export default function Home() {
               Join the waitlist
             </Button>
 
-            <div className="p-2 bg-white max-w-[420px] mx-auto w-full"></div>
-            <div className="p-2 bg-white max-w-[420px] mx-auto w-full"></div>
+            <div className="flex flex-col gap-4 p-2 px-4 mx-auto text-xs font-semibold bg-white md:flex-row text-primary">
+              <Link
+                href="mailto:info@punteer.com"
+                className="flex items-center gap-2"
+              >
+                <span className="p-1 border rounded-full border-secondary text-secondary">
+                  <Mail size={14} />
+                </span>
+                <p>info@punteer.com</p>
+              </Link>
+              <div className="flex items-center gap-2">
+                <span className="p-1 border rounded-full border-secondary text-secondary">
+                  <FacebookIcon size={14} />
+                </span>
+                <span className="p-1 border rounded-full border-secondary text-secondary">
+                  <InstagramIcon size={14} />
+                </span>
+                <span className="p-1 border rounded-full border-secondary text-secondary">
+                  <TwitterIcon size={14} />
+                </span>
+
+                <p>mypunteer</p>
+              </div>
+            </div>
+            {/* <div className="p-2 bg-white max-w-[420px] mx-auto w-full"></div> */}
           </form>
         </div>
       </main>

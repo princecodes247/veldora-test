@@ -81,7 +81,7 @@
 }
 
 .bg-pattern {
-  background-image: url("../public/bg.jpg");
+  background: url("../public/bg.jpg") black;
   background-size: cover;
   background-position: center;
   object-fit: contain;
