@@ -7,6 +7,7 @@ import { WaitlistForm } from "@/components/WaitlistForm";
 import { Label } from "@/components/ui/label";
 import { useEffect, useRef } from "react";
 import wordmarkLogo from "@/public/wordmark.png";
+import logo from "@/public/logo.png";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -29,13 +30,14 @@ export default function Home() {
           <title>Punteer.com</title>
           <meta
             name="description"
-            content="Punteer.com is the first and largest punters' social network in Africa"
+            content="Curious about the next big thing in social media? Secure your spot
+            on our waitlist and be the first to explore our innovative platform!"
           />
           <link rel="icon" href="/favicon.png" />
         </Head>
         <Image
-          src={wordmarkLogo}
-          className="w-[100px] md:w-[120px] mb-8 mx-auto"
+          src={logo}
+          className="w-[100px] md:w-[120px] mb-2 md:mb-8 mx-auto"
           alt="Punteer Logo"
         />
         <div className="max-w-[540px] waitlist-card  bg-black/20 backdrop-blur-sm text-white rounded-sm  w-full px-8 p-12">
