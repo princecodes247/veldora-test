@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link
-          href="https://api.fontshare.com/v2/css?f[]=synonym@400&f[]=amulya@700&display=swap"
+          href="https://api.fontshare.com/v2/css?f[]=synonym@400&f[]=amulya@700&f[]=clash-display@1&display=swap"
           rel="stylesheet"
         />
       </Head>

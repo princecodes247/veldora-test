@@ -52,7 +52,8 @@ module.exports = {
       },
       fontFamily: {
         body: "'Synonym', sans-serif",
-        heading: "Amulya, sans-serif",
+        // heading: "Amulya, sans-serif",
+        heading: "'Clash Display', sans-serif",
       },
       borderRadius: {
         lg: "var(--radius)",

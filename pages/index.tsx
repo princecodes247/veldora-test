@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <main
-        className={`flex min-h-screen text-white flex-col py-12 items-center font-body justify-between px-8 ${inter.className}`}
+        className={`flex min-h-screen text-white flex-col py-12 items-center font-body justify-between px-2 md:px-8 ${inter.className}`}
       >
         <Head>
           <title>Punteer.com</title>
@@ -25,14 +25,14 @@ export default function Home() {
           />
           <link rel="icon" href="/favicon.png" />
         </Head>
-        <div className="max-w-[540px]  bg-black/20 backdrop-blur-sm text-white rounded-sm  w-full px-8 p-12">
-          <Image
-            src={wordmarkLogo}
-            className="w-[100px] md:w-[120px] mx-auto"
-            alt="Punteer Logo"
-          />
-          <h1 className="mb-4 text-3xl font-bold text-center md:text-4xl font-heading">
-            Punteer is coming
+        <Image
+          src={wordmarkLogo}
+          className="w-[100px] md:w-[120px] mb-8 mx-auto"
+          alt="Punteer Logo"
+        />
+        <div className="max-w-[540px] waitlist-card  bg-black/20 backdrop-blur-sm text-white rounded-sm  w-full px-8 p-12">
+          <h1 className="mb-4 text-3xl font-semibold text-center md:text-4xl font-heading">
+            Punteer is coming!
           </h1>
           <p className="my-4 text-sm text-center text-gray-300">
             Curious about the next big thing in social media? Secure your spot
@@ -93,7 +93,7 @@ export default function Home() {
           </form>
         </div>
       </main>
-      <footer className="flex items-center justify-center p-4 text-sm text-gray-700 bg-gray-100/80">
+      <footer className="flex items-center justify-center gap-2 p-4 text-sm text-gray-700 bg-gray-100/80">
         <Image src={wordmarkLogo} className="w-[100px]" alt="Punteer Logo" />
         <p>© 2023 Punteer. All rights reserved</p>
       </footer>
