@@ -19,11 +19,38 @@ import Link from "next/link";
 import useIncrementalCounter from "@/hooks/useIncrementalCounter";
 import { ShareDialog } from "@/components/ShareDialog";
 import clsx from "clsx";
+import { useMutation } from "@tanstack/react-query";
+import { useToast } from "@/components/ui/use-toast";
+import { postSubscribeToWaitlist } from "@/services/WaitlistService";
+import { useMutate } from "@/hooks/useMutate";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const { toast } = useToast();
   const subCount = useIncrementalCounter(10, 3021, 8000);
+  const waitlistMutation = useMutate(postSubscribeToWaitlist, {
+    onSuccessFunction: () => {
+      setIsSubmitted(true);
+      toast({
+        title: "Success!",
+        description: "You have been added to our waitlist.",
+      });
+    },
+    onErrorFunction: () => {
+      toast({
+        title: "Error!",
+        description: "Something went wrong. Please try again later.",
+      });
+    },
+  });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    waitlistMutation.mutate({ email, name });
+  };
   return (
     <>
       <main
@@ -33,14 +60,13 @@ export default function Home() {
           <title>Punteer.com</title>
           <meta
             name="description"
-            content="Curious about the next big thing in social media? Secure your spot
-            on our waitlist and be the first to explore our innovative platform!"
+            content="Curious about the next big thing in the betting industry? Want to get fast betting codes from your favourite punters through email, in-app alerts, then secure your spot now!"
           />
           <link rel="icon" href="/favicon.png" />
         </Head>
         <Image
           src={logo}
-          className="w-[130px] md:w-[150px] mb-2 md:mb-8 mx-auto"
+          className="w-[150px] md:w-[180px] mb-2 md:mb-8 mx-auto"
           alt="Punteer Logo"
         />
         <div
@@ -65,7 +91,10 @@ export default function Home() {
                 <span className="text-green-400">{subCount}</span> PEOPLE
                 WAITING
               </p>
-              <form className="flex flex-col gap-2 mt-12">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-2 mt-12"
+              >
                 <div>
                   <Label htmlFor="email">Email</Label>
                   <Input
@@ -74,6 +103,8 @@ export default function Home() {
                     type="email"
                     placeholder="Email"
                     required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div>
@@ -84,9 +115,15 @@ export default function Home() {
                     type="text"
                     placeholder="Full Name"
                     required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                   />
                 </div>
-                <Button variant={"default"} className="rounded-sm ">
+                <Button
+                  isLoading={waitlistMutation.isLoading}
+                  variant={"default"}
+                  className="rounded-sm "
+                >
                   Join the waitlist
                 </Button>
                 <div className="flex flex-col gap-4 p-2 px-4 mx-auto text-xs font-semibold bg-white md:flex-row text-primary">
