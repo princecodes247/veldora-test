@@ -66,7 +66,7 @@ export default function Home() {
         </Head>
         <Image
           src={logo}
-          className="w-[150px] md:w-[180px] mb-2 md:mb-8 mx-auto"
+          className="w-[180px] md:w-[200px] mb-2 md:mb-8 mx-auto"
           alt="Punteer Logo"
         />
         <div
