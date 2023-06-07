@@ -23,6 +23,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import { postSubscribeToWaitlist } from "@/services/WaitlistService";
 import { useMutate } from "@/hooks/useMutate";
+import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -31,6 +32,9 @@ export default function Home() {
   const [name, setName] = useState("");
   const { toast } = useToast();
   const subCount = useIncrementalCounter(10, 3021, 8000);
+
+  const { copy } = useCopyToClipboard();
+
   const waitlistMutation = useMutate(postSubscribeToWaitlist, {
     onSuccessFunction: () => {
       setIsSubmitted(true);
@@ -40,6 +44,7 @@ export default function Home() {
       });
     },
     onErrorFunction: () => {
+      setIsSubmitted(true);
       toast({
         title: "Error!",
         description: "Something went wrong. Please try again later.",
@@ -163,7 +168,18 @@ export default function Home() {
               </p>
 
               <div className="flex justify-center mt-6">
-                <Button variant={"outline"}>Copy Link</Button>
+                <Button
+                  onClick={() => {
+                    copy("https://punteer.com");
+                    toast({
+                      title: "Copied!",
+                      description: "Link copied to clipboard.",
+                    });
+                  }}
+                  variant={"outline"}
+                >
+                  Copy Link
+                </Button>
               </div>
             </div>
           )}
