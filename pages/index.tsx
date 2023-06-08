@@ -21,7 +21,10 @@ import { ShareDialog } from "@/components/ShareDialog";
 import clsx from "clsx";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
-import { postSubscribeToWaitlist } from "@/services/WaitlistService";
+import {
+  getSubscribersCount,
+  postSubscribeToWaitlist,
+} from "@/services/WaitlistService";
 import { useMutate } from "@/hooks/useMutate";
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 const inter = Inter({ subsets: ["latin"] });
@@ -56,6 +59,10 @@ export default function Home() {
     e.preventDefault();
     waitlistMutation.mutate({ email, name });
   };
+
+  useEffect(() => {
+    getSubscribersCount();
+  }, []);
   return (
     <>
       <main
