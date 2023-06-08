@@ -25,5 +25,5 @@ jobs:
         server: 195.230.23.76
         username: admin_punteer
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: out
-        remote-dir: punteer.com/public_html
+        local-dir: out/
+        remote-dir: punteer.com/public_html/
