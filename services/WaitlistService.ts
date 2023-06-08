@@ -25,6 +25,7 @@ export const postSubscribeToWaitlist = ({
     url: "https://mailer.punteer.com/sender/subscribe",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
+      Referer: "mailer.punteer.com",
     },
     data: data,
   };
@@ -50,6 +51,7 @@ export const getSubscribersCount = () => {
     url: "https://mailer.punteer.com/sender/api/subscribers/active-subscriber-count.php",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
+      Referer: "mailer.punteer.com",
     },
     data: data,
   };
