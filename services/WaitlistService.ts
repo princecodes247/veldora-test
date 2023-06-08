@@ -23,10 +23,11 @@ export const postSubscribeToWaitlist = ({
     method: "post",
     maxBodyLength: Infinity,
     url: "https://mailer.punteer.com/sender/subscribe",
+    withCredentials: false,
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
-      Referer: "mailer.punteer.com",
     },
+
     data: data,
   };
   return axios.request(config);
@@ -49,10 +50,13 @@ export const getSubscribersCount = () => {
     method: "post",
     maxBodyLength: Infinity,
     url: "https://mailer.punteer.com/sender/api/subscribers/active-subscriber-count.php",
+    withCredentials: false,
+
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
       Referer: "mailer.punteer.com",
     },
+
     data: data,
   };
   return axios.request(config);
