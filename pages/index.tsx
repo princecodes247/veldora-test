@@ -19,7 +19,7 @@ import Link from "next/link";
 import useIncrementalCounter from "@/hooks/useIncrementalCounter";
 import { ShareDialog } from "@/components/ShareDialog";
 import clsx from "clsx";
-import { useMutation } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useToast } from "@/components/ui/use-toast";
 import {
   getSubscribersCount,
@@ -34,20 +34,21 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const { toast } = useToast();
-  const subCount = useIncrementalCounter(10, 3021, 8000);
+  const [targetCount, setTargetCount] = useState(0);
+  const subCount = useIncrementalCounter(0, targetCount, 6000);
 
   const { copy } = useCopyToClipboard();
 
   const waitlistMutation = useMutate(postSubscribeToWaitlist, {
-    onSuccessFunction: () => {
+    onSuccessFunction: (data) => {
+      console.log({ data });
       setIsSubmitted(true);
       toast({
         title: "Success!",
-        description: "You have been added to our waitlist.",
+        description: data.data.data,
       });
     },
     onErrorFunction: () => {
-      setIsSubmitted(true);
       toast({
         title: "Error!",
         description: "Something went wrong. Please try again later.",
@@ -60,9 +61,14 @@ export default function Home() {
     waitlistMutation.mutate({ email, name });
   };
 
-  useEffect(() => {
-    getSubscribersCount();
-  }, []);
+  const subscribersCount = useQuery({
+    queryKey: ["subscribers-count"],
+    queryFn: async () => {
+      const res = await getSubscribersCount();
+      setTargetCount(res.data.data);
+      return res.data.data;
+    },
+  });
   return (
     <>
       <main
@@ -98,6 +104,7 @@ export default function Home() {
                 spot on our waitlist and be the first to explore our innovative
                 platform!
               </p>
+
               <p className="flex justify-center gap-2 my-4 mb-2 font-semibold text-center text-gray-200 ">
                 <UserCheck2 className="text-center text-green-400 " />
                 <span className="text-green-400">{subCount}</span> PEOPLE
