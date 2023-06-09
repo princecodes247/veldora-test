@@ -80,7 +80,7 @@ export default function Home() {
             name="description"
             content="Curious about the next big thing in the betting industry? Want to get fast betting codes from your favourite punters through email, in-app alerts, then secure your spot now!"
           />
-          <link rel="icon" href="/favicon.png" />
+          <link rel="icon" href="/favicon.jpg" />
         </Head>
         <Image
           src={logo}
