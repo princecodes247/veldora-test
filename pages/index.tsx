@@ -75,7 +75,7 @@ export default function Home() {
         className={`flex min-h-screen text-white flex-col py-12 items-center font-body  px-2 md:px-8 ${inter.className}`}
       >
         <Head>
-          <title>Punteer.com</title>
+          <title>Punteer.com - Africa's first Punter's Social Platform</title>
           <meta
             name="description"
             content="Curious about the next big thing in the betting industry? Want to get fast betting codes from your favourite punters through email, in-app alerts, then secure your spot now!"
