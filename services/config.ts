@@ -10,6 +10,13 @@ const api = axios.create({
     "Content-Type": "application/json",
   },
 });
+const waitlistApi = axios.create({
+  baseURL: "https://tame-teal-cormorant-tux.cyclic.app",
+  maxBodyLength: Infinity,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 const uninterceptedApi = axios.create({
   baseURL: baseURL.toString(),
   maxBodyLength: Infinity,
@@ -46,5 +53,5 @@ const authHeaders = () => {
     Authorization: `Bearer ${localStorage.getItem("token") ?? ""}`,
   };
 };
-export { baseURL, authHeaders, uninterceptedApi };
+export { baseURL, authHeaders, waitlistApi, uninterceptedApi };
 export default api;
