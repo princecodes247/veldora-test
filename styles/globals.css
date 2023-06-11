@@ -91,6 +91,25 @@
   animation: fade-up 800ms;
 }
 
+.bg-fade {
+  animation: fade-bg 6s alternate infinite;
+}
+
+@keyframes fade-bg {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes fade-up {
   0% {
     transform: translateY(15px);

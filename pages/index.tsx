@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { useEffect, useRef, useState } from "react";
 import wordmarkLogo from "@/public/wordmark.png";
 import logo from "@/public/logo.png";
+import bg2 from "@/public/bg2.jpg";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -72,8 +73,13 @@ export default function Home() {
   return (
     <>
       <main
-        className={`flex min-h-screen text-white flex-col py-12 items-center font-body  px-2 md:px-8 ${inter.className}`}
+        className={`flex relative min-h-screen text-white flex-col py-12 items-center font-body  px-2 md:px-8 ${inter.className}`}
       >
+        <Image
+          src={bg2}
+          className="absolute bg-fade inset-0 z-[-1] w-full object-cover h-full "
+          alt="Punteer Logo"
+        />
         <Head>
           <title>
             Punteer.com - Africa&apos;s first Punter&apos;s Social Platform
@@ -84,6 +90,7 @@ export default function Home() {
           />
           <link rel="icon" href="/favicon.jpg" />
         </Head>
+
         <Image
           src={logo}
           className="w-[180px] md:w-[200px] mb-2 md:mb-8 mx-auto"
@@ -201,7 +208,7 @@ export default function Home() {
           )}
         </div>
       </main>
-      <footer className="flex items-center justify-center gap-2 p-4 text-sm text-gray-700 bg-gray-100/80">
+      <footer className="flex items-center justify-center gap-2 p-4 text-sm text-gray-700 bg-gray-100">
         <Image src={wordmarkLogo} className="w-[100px]" alt="Punteer Logo" />
         <p>© 2023 Punteer. All rights reserved</p>
       </footer>
