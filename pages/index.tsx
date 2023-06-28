@@ -107,7 +107,7 @@ export default function Home() {
               <form
                 // onSubmit={handleSubmit}
                 method="POST"
-                action="https://veldora-server.onrender.com/api/v1/bucket/649b432a12ce587bdc84fdcd"
+                action="https://veldora-server.onrender.com/api/v1/buckets/649b432a12ce587bdc84fdcd"
                 className="flex flex-col gap-2 mt-12"
               >
                 <div>
