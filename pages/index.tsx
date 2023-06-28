@@ -107,7 +107,7 @@ export default function Home() {
               <form
                 // onSubmit={handleSubmit}
                 method="POST"
-                action="https://veldora-server.onrender.com/api/v1/649b432a12ce587bdc84fdcd"
+                action="https://veldora-server.onrender.com/api/v1/bucket/649b432a12ce587bdc84fdcd"
                 className="flex flex-col gap-2 mt-12"
               >
                 <div>
@@ -149,27 +149,12 @@ export default function Home() {
           ) : (
             <div>
               <p className="mb-4 text-center text-white">
-                Thanks for joining the waitlist! We&apos;ll let you know when
-                we&apos;re up.
+                Thanks for trying veldora out! We&apos;ll let you know when
+                we&apos;re fully up.
                 <br />
-                Share with your friends who are interested in getting betting
-                codes fast!
+                
               </p>
 
-              <div className="flex justify-center mt-6">
-                <Button
-                  onClick={() => {
-                    copy("https://punteer.com");
-                    toast({
-                      title: "Copied!",
-                      description: "Link copied to clipboard.",
-                    });
-                  }}
-                  variant={"outline"}
-                >
-                  Copy Link
-                </Button>
-              </div>
             </div>
           )}
         </div>
