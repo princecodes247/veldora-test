@@ -110,6 +110,7 @@ export default function Home() {
                 action="https://veldora-server.onrender.com/api/v1/buckets/649b432a12ce587bdc84fdcd"
                 className="flex flex-col gap-2 mt-12"
               >
+                <img src="https://veldora-server.onrender.com/api/v1/buckets/649b432a12ce587bdc84fdcd/view" alt="Veldora analytics"/>
                 <div>
                   <Label htmlFor="email">Email</Label>
                   <Input
